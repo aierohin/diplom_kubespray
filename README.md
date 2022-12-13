@@ -66,4 +66,4 @@ kubectl version
 kubectl get nodes  
 
 ## Доступ к кластеру
-Для доступа к кластеру извне нужно добавить параметр supplementary_addresses_in_ssl_keys: [51.250.42.98] в файл inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml Заново запустить установку кластера. После этого кластер будет доступен извне.
+Для доступа к кластеру извне нужно добавить параметр supplementary_addresses_in_ssl_keys: [158.160.33.134] в файл inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml Заново запустить установку кластера. После этого кластер будет доступен извне.
