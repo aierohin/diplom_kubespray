@@ -1,0 +1,35 @@
+all:
+  hosts:
+    node-cp:
+      ansible_host: 158.160.43.51
+      ansible_user: centos
+      #ip: 158.160.44.13
+      #access_ip: 158.160.44.13
+    node-work-1:
+      ansible_host: 158.160.14.169
+      ansible_user: centos
+      #ip: 158.160.10.230
+      #access_ip: 158.160.10.230
+    node-work-2:
+      ansible_host: 51.250.42.130
+      ansible_user: centos
+      #ip: 51.250.33.150
+      #access_ip: 51.250.33.150
+  children:
+    kube_control_plane:
+      hosts:
+        node-cp:
+    kube_node:
+      hosts:
+        node-cp:
+        node-work-1:
+        node-work-2:
+    etcd:
+      hosts:
+        node-cp:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
